@@ -1,19 +1,17 @@
-Custom License for ITA-Computations
+### **LICENSE**  
 
-Copyright (c) 2025 iTAsofts
+**Custom License for ITA-Computations**  
+Copyright (c) 2025 iTAsofts  
+All rights reserved.  
 
-All rights reserved.
+This repository serves as the official landing page for ITA-Computations and contains documentation, download links, and other related materials. **The source code of the app is not publicly available.**  
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to view
-and download the Software for personal, non-commercial use only. The Software
-may not be modified, distributed, sublicensed, sold, or used for any commercial
-purposes without the express written permission of the copyright holder.
+## **Permitted Usage**  
+1. You **may** view, download, and share the contents of this repository for personal, non-commercial use.  
+2. You **may not** modify, distribute, sublicense, or sell any content from this repository without written permission from iTAsofts.  
+3. The downloadable app files provided in this repository **are subject to additional terms** found in the [End User License Agreement (EULA)](EULA.md).  
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+## **Disclaimer & Liability**  
+This repository and its contents are provided **"as is,"** without warranty of any kind. The authors are not responsible for any issues arising from the use of the materials provided.  
+
+For further inquiries, please contact: itasofts@gmail.com
