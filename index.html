@@ -20,7 +20,7 @@
         "header header header"
         "left-ad main-content right-ad"
         "footer footer footer";
-      grid-template-columns: minmax(120px, 200px) 1fr minmax(120px, 200px);
+      grid-template-columns: 10% 80% 10%;
       grid-template-rows: auto 1fr auto;
       min-height: 100vh;
     }
@@ -50,7 +50,7 @@
       grid-area: main-content;
       background-color: #FFE0B881;
       padding: 20px;
-      margin: 10px;
+      margin: 10px 0;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       min-width: 0; /* Prevent overflow */
@@ -61,14 +61,18 @@
       grid-area: left-ad;
       padding: 10px;
       background-color: #f9f9f9;
-      min-width: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
 
     .ad-right {
       grid-area: right-ad;
       padding: 10px;
       background-color: #f9f9f9;
-      min-width: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
 
     .ad-top, .ad-bottom {
@@ -88,163 +92,38 @@
       border: 1px dashed #ccc;
       margin-bottom: 10px;
       padding: 5px;
-    }
-
-    /* Introduction Section */
-    #introduction {
-      padding: 20px;
-      background-color: #FFFFFF;
-      color: #000000;
-      margin-bottom: 20px;
-      border-radius: 5px;
-    }
-
-    #introduction h2 {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-      font-weight: bold;
-      color: #7C2929;
-    }
-
-    #introduction p, #introduction ul {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    /* Features Section */
-    #features {
-      padding: 20px;
-      background-color: #F9F9F9;
-      margin-bottom: 20px;
-      border-radius: 5px;
-    }
-
-    #features h2 {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-      font-weight: bold;
-      color: #7C2929;
-    }
-
-    .feature h3 {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-      font-weight: bold;
-      color: #7C2929;
-    }
-
-    /* Screenshots Section */
-    #screenshots {
-      padding: 20px;
-      background-color: #FFFFFF;
-      margin-bottom: 20px;
-      border-radius: 5px;
-    }
-
-    #screenshots h2 {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-      font-weight: bold;
-      color: #7C2929;
-    }
-
-    .screenshot-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-    }
-
-    figure img {
-      max-width: 100%;
-      border-radius: 10px;
-    }
-
-    /* Download Section */
-    #download {
-      padding: 0;
-      background-color: #7C2929;
-      text-align: center;
-      color: #FFFFFF;
-      margin-bottom: 20px;
-      border-radius: 5px;
-    }
-
-    #download h2 {
-      font-size: 1.8rem;
-      margin: 15px 0;
-      font-weight: bold;
-    }
-
-    .store-button {
-      display: inline-block;
-      padding: 10px 15px;
-      background-color: #E0B881;
-      color: #000000;
-      text-decoration: none;
-      border-radius: 5px;
-      margin: 8px;
-      font-weight: bold;
       font-size: 0.9rem;
     }
 
-    /* FAQ Section */
-    #faqs {
+    /* Content Sections */
+    #introduction, #features, #screenshots, #download, #faqs {
       padding: 20px;
       background-color: #FFFFFF;
       margin-bottom: 20px;
       border-radius: 5px;
     }
 
-    #faqs h2 {
+    h2 {
       font-size: 1.8rem;
       margin-bottom: 15px;
       font-weight: bold;
       color: #7C2929;
-    }
-
-    details {
-      margin-bottom: 10px;
-      border: 1px solid #DDD;
-      border-radius: 5px;
-      padding: 10px;
-    }
-
-    summary {
-      font-size: 1.1rem;
-      font-weight: bold;
-      cursor: pointer;
-      color: #7C2929;
-    }
-
-    /* Footer Section */
-    footer {
-      grid-area: footer;
-      text-align: center;
-      padding: 15px;
-      background-color: #7C2929;
-      color: #FFFFFF;
-    }
-
-    footer a {
-      color: #FFFFFF;
-      text-decoration: none;
-      margin: 0 8px;
-      font-size: 0.9rem;
     }
 
     /* Responsive Design */
+    @media (max-width: 1024px) {
+      body {
+        grid-template-columns: 15% 70% 15%;
+      }
+    }
+
     @media (max-width: 768px) {
       body {
-        grid-template-columns: minmax(100px, 150px) 1fr minmax(100px, 150px);
+        grid-template-columns: 20% 60% 20%;
       }
       
       .main-content {
         padding: 15px;
-        margin: 5px;
-      }
-      
-      .ad-left, .ad-right {
-        padding: 5px;
       }
       
       .ad-container {
@@ -252,18 +131,14 @@
         font-size: 0.8rem;
       }
       
-      header h1 {
-        font-size: 1.8rem;
-      }
-      
-      header p {
-        font-size: 1rem;
+      h2 {
+        font-size: 1.6rem;
       }
     }
 
     @media (max-width: 480px) {
       body {
-        grid-template-columns: minmax(80px, 120px) 1fr minmax(80px, 120px);
+        grid-template-columns: 15% 70% 15%;
       }
       
       .main-content {
@@ -275,21 +150,8 @@
         font-size: 0.7rem;
       }
       
-      #introduction h2,
-      #features h2,
-      #screenshots h2,
-      #download h2,
-      #faqs h2 {
-        font-size: 1.5rem;
-      }
-      
-      .feature h3 {
-        font-size: 1.1rem;
-      }
-      
-      .store-button {
-        padding: 8px 12px;
-        font-size: 0.8rem;
+      h2 {
+        font-size: 1.4rem;
       }
     }
   </style>
@@ -308,19 +170,12 @@
       <p>Advertisement</p>
     </div>
     <div class="ad-container">
-      <p>Your Other App 1</p>
+      <p>Your App 1</p>
     </div>
   </div>
 
   <!-- Main Content Box -->
   <main class="main-content">
-    <!-- Top Ad Space -->
-    <div class="ad-top">
-      <div class="ad-container">
-        <p>Advertisement</p>
-      </div>
-    </div>
-
     <!-- Introduction Section -->
     <section id="introduction">
       <h2>About ITA-Computations</h2>
@@ -359,41 +214,11 @@
     <!-- Download Section -->
     <section id="download">
       <h2>Download</h2>
-      <a href="[Microsoft Store Link]" class="store-button">Get it on Microsoft Store</a>
-      <a href="[Google Play Link]" class="store-button">Download on Google Play</a>
-      <a href="[App Store Link]" class="store-button">Available on the App Store</a>
+      <a href="[Microsoft Store Link]" class="store-button">Microsoft Store</a>
+      <a href="[Google Play Link]" class="store-button">Google Play</a>
+      <a href="[App Store Link]" class="store-button">App Store</a>
       <p>The app works entirely offline and is available for Android, iOS, and Windows.</p>
     </section>
-
-    <!-- FAQ Section -->
-    <section id="faqs">
-      <h2>Frequently Asked Questions</h2>
-      <button onclick="toggleFAQ()">Show FAQs</button>
-
-      <div class="faq-container">
-        <details>
-          <summary>What does this app do?</summary>
-          <p>This app helps you perform various geospatial calculations, including computing bearing, distance, and area from coordinates.</p>
-        </details>
-
-        <details>
-          <summary>How do I compute bearing and distance?</summary>
-          <p>Enter the coordinates for Point 1 and Point 2, then click "Save and Calculate" to get results.</p>
-        </details>
-
-        <details>
-          <summary>Can I compute area from coordinates?</summary>
-          <p>Yes, enter the boundary coordinates and click "Save and Calculate" to compute the area.</p>
-        </details>
-      </div>
-    </section>
-
-    <!-- Bottom Ad Space -->
-    <div class="ad-bottom">
-      <div class="ad-container">
-        <p>Advertisement</p>
-      </div>
-    </div>
   </main>
 
   <!-- Right Ad Space -->
@@ -402,7 +227,7 @@
       <p>Advertisement</p>
     </div>
     <div class="ad-container">
-      <p>Your Other App 2</p>
+      <p>Your App 2</p>
     </div>
   </div>
 
@@ -410,27 +235,7 @@
   <footer>
     <p>© 2025 itasofts. All rights reserved.</p>
     <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a>
-    <div class="social-media">
-      <a href="[Facebook Link]"><img src="icons/facebook.png" alt="Facebook"></a>
-      <a href="[Twitter Link]"><img src="icons/twitter.png" alt="Twitter"></a>
-    </div>
   </footer>
-
-  <script>
-    function toggleFAQ() {
-      let faqContainer = document.querySelector(".faq-container");
-      let button = document.querySelector("button");
-
-      // Toggle FAQ section visibility
-      if (faqContainer.style.display === "none" || faqContainer.style.display === "") {
-        faqContainer.style.display = "block";
-        button.textContent = "Hide FAQs";
-      } else {
-        faqContainer.style.display = "none";
-        button.textContent = "Show FAQs";
-      }
-    }
-  </script>
 
 </body>
 </html>
