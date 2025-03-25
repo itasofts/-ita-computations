@@ -29,20 +29,21 @@
     header {
       grid-area: header;
       text-align: center;
-      padding: 20px;
+      padding: 15px 20px;
       background-color: #7C2929;
       color: #FFFFFF;
     }
 
     header h1 {
-      font-size: 2.2rem;
-      margin-bottom: 5px;
+      font-size: 2rem;
+      margin: 5px 0;
       font-weight: bold;
     }
 
     header p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: bold;
+      margin: 5px 0;
     }
 
     /* Main Content Box */
@@ -53,7 +54,7 @@
       margin: 10px 0;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      min-width: 0; /* Prevent overflow */
+      min-width: 0;
     }
 
     /* Ad Sections */
@@ -73,14 +74,6 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-    }
-
-    .ad-top, .ad-bottom {
-      width: 100%;
-      text-align: center;
-      padding: 10px;
-      background-color: #f9f9f9;
-      margin: 10px 0;
     }
 
     .ad-container {
@@ -110,6 +103,98 @@
       color: #7C2929;
     }
 
+    /* Footer Section */
+    footer {
+      grid-area: footer;
+      text-align: center;
+      padding: 10px 20px;
+      background-color: #7C2929;
+      color: #FFFFFF;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    footer a {
+      color: #FFFFFF;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+
+  /* Download Section */
+  #download {
+    padding: 10px; /* Reduced from 20px */
+    background-color: #7C2929;
+    text-align: center;
+    color: #FFFFFF;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  #download h2 {
+    font-size: 1.8rem; /* Slightly reduced */
+    margin: 8px 0 12px 0; /* Reduced margins */
+    font-weight: bold;
+  }
+
+  .store-button {
+    display: inline-block;
+    padding: 4px 8px; /* Reduced by ~50% (was 8px 15px) */
+    background-color: #E0B881;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 4px; /* Slightly reduced */
+    margin: 4px; /* Reduced from 5px */
+    font-weight: bold;
+    font-size: 0.8rem; /* Slightly smaller text */
+    line-height: 1.2; /* Tighter line spacing */
+  }
+
+  #download p {
+    margin: 12px 0 0 0;
+    padding: 0;
+    font-size: 0.9rem; /* Slightly smaller text */
+  }
+
+
+    /* FAQ Section Styles */
+    #faqs {
+      position: relative;
+    }
+
+    .faq-toggle {
+      padding: 10px 15px;
+      background-color: #7C2929;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 15px;
+    }
+
+    .faq-container {
+      display: none;
+    }
+
+    .faq-container.show {
+      display: block;
+    }
+
+    details {
+      margin-bottom: 10px;
+      border: 1px solid #DDD;
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+      color: #7C2929;
+    }
+
     /* Responsive Design */
     @media (max-width: 1024px) {
       body {
@@ -128,7 +213,6 @@
       
       .ad-container {
         min-height: 120px;
-        font-size: 0.8rem;
       }
       
       h2 {
@@ -141,13 +225,8 @@
         grid-template-columns: 15% 70% 15%;
       }
       
-      .main-content {
-        padding: 10px;
-      }
-      
-      .ad-container {
-        min-height: 100px;
-        font-size: 0.7rem;
+      header h1 {
+        font-size: 1.8rem;
       }
       
       h2 {
@@ -211,14 +290,130 @@
       </div>
     </section>
 
-    <!-- Download Section -->
-    <section id="download">
-      <h2>Download</h2>
-      <a href="[Microsoft Store Link]" class="store-button">Microsoft Store</a>
-      <a href="[Google Play Link]" class="store-button">Google Play</a>
-      <a href="[App Store Link]" class="store-button">App Store</a>
-      <p>The app works entirely offline and is available for Android, iOS, and Windows.</p>
-    </section>
+  <!-- Download Section -->
+  <section id="download">
+    <h2>Download</h2>
+    <a href="[Microsoft Store Link]" class="store-button">Get it on Microsoft Store</a>
+    <a href="[Google Play Link]" class="store-button">Download on Google Play</a>
+    <a href="[App Store Link]" class="store-button">Available on the App Store</a>
+    <p>The app works entirely offline and is available for Android, iOS, and Windows.</p>
+  </section>
+
+    <!-- FAQ Section -->
+  </head>
+<body>
+
+    <button onclick="toggleFAQ()">Show FAQs</button>
+
+    <div class="faq-container">
+        <details>
+            <summary>What does this app do?</summary>
+            <p>This app helps you perform various geospatial calculations, including computing bearing, distance, and area from coordinates.</p>
+        </details>
+
+        <details>
+            <summary>How do I compute bearing and distance?</summary>
+            <p>Enter the coordinates for Point 1 and Point 2, then click "Save and Calculate" to get results.</p>
+        </details>
+
+        <details>
+            <summary>Can I compute area from coordinates?</summary>
+            <p>Yes, enter the boundary coordinates and click "Save and Calculate" to compute the area.</p>
+        </details>
+
+        <details>
+            <summary>How do I switch between light and dark mode?</summary>
+            <p>Open the menu and select "Toggle Dark Mode" to switch themes.</p>
+        </details>
+
+        <details>
+            <summary>How do I download the app?</summary>
+            <p>Select "Download Android Version", "Download iOS Version", or "Download Windows Version" from the menu.</p>
+        </details>
+
+        <details>
+            <summary>Can I import coordinates from a CSV file?</summary>
+            <p>Yes, click "Import CSV (N, E, L)" and ensure your file includes Northing (N), Easting (E), and Labels (L).</p>
+        </details>
+
+        <details>
+            <summary>How do I clear all entered coordinates?</summary>
+            <p>Click "Clear All Rows" to remove all input data.</p>
+        </details>
+
+        <details>
+            <summary>How do I save my calculations?</summary>
+            <p>Click "Save and Calculate" to generate computation sheets.</p>
+        </details>
+
+        <details>
+            <summary>Can I share the generated sheets?</summary>
+            <p>Yes, you can save them as PDFs or print directly from the app.</p>
+        </details>
+
+        <details>
+            <summary>How do I contact support?</summary>
+            <p>Reach out via:</p>
+            <ul>
+                <li>Facebook: [Your Facebook]</li>
+                <li>Twitter: [Your Twitter]</li>
+                <li>Instagram: [Your Instagram]</li>
+                <li>GitHub: [Your GitHub]</li>
+                <li>Email: [Your Support Email]</li>
+            </ul>
+        </details>
+
+        <details>
+            <summary>Can I use this app offline?</summary>
+            <p>Yes, the app works without an internet connection.</p>
+        </details>
+
+        <details>
+            <summary>What units does the app support?</summary>
+            <p>The app supports Meters, Feet, Acres, and Hectares.</p>
+        </details>
+
+        <details>
+            <summary>How do I update the app?</summary>
+            <p>Updates are available on Google Play, App Store, and the website.</p>
+        </details>
+
+        <details>
+            <summary>What if I find a bug?</summary>
+            <p>Report issues via GitHub or email us at [Your Support Email].</p>
+        </details>
+
+        <details>
+            <summary>Can I customize the generated sheets?</summary>
+            <p>Customization options may be added in future updates.</p>
+        </details>
+
+        <details>
+            <summary>How do I suggest new features?</summary>
+            <p>Share your ideas via social media or GitHub.</p>
+        </details>
+
+    </div>
+
+    <script>
+        function toggleFAQ() {
+            let faqContainer = document.querySelector(".faq-container");
+            let button = document.querySelector("button");
+
+            // Toggle FAQ section visibility
+            if (faqContainer.style.display === "none" || faqContainer.style.display === "") {
+                faqContainer.style.display = "block";
+                button.textContent = "Hide FAQs";
+            } else {
+                faqContainer.style.display = "none";
+                button.textContent = "Show FAQs";
+            }
+        }
+    </script>
+
+</body>
+</html>
+
   </main>
 
   <!-- Right Ad Space -->
@@ -236,6 +431,7 @@
     <p>© 2025 itasofts. All rights reserved.</p>
     <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a>
   </footer>
+
 
 </body>
 </html>
