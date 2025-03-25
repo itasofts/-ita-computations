@@ -13,14 +13,23 @@
       margin: 0;
       padding: 0;
       line-height: 1.6;
-      background-color: #FFE0B881; /* Updated Background */
+      background-color: #f5f5f5;
       color: #000000;
+      display: grid;
+      grid-template-areas:
+        "header header header"
+        "left-ad main-content right-ad"
+        "footer footer footer";
+      grid-template-columns: 200px 1fr 200px;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100vh;
     }
 
     /* Header Section */
     header {
+      grid-area: header;
       text-align: center;
-      padding: 20px; /* Reduced Padding */
+      padding: 20px;
       background-color: #7C2929;
       color: #FFFFFF;
     }
@@ -36,11 +45,54 @@
       font-weight: bold;
     }
 
+    /* Main Content Box */
+    .main-content {
+      grid-area: main-content;
+      background-color: #FFE0B881;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    /* Ad Sections */
+    .ad-left {
+      grid-area: left-ad;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    .ad-right {
+      grid-area: right-ad;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    .ad-top, .ad-bottom {
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      background-color: #f9f9f9;
+      margin: 10px 0;
+    }
+
+    .ad-container {
+      min-height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #e9e9e9;
+      border: 1px dashed #ccc;
+      margin-bottom: 20px;
+    }
+
     /* Introduction Section */
     #introduction {
       padding: 20px;
       background-color: #FFFFFF;
       color: #000000;
+      margin-bottom: 20px;
+      border-radius: 5px;
     }
 
     #introduction h2 {
@@ -59,6 +111,8 @@
     #features {
       padding: 20px;
       background-color: #F9F9F9;
+      margin-bottom: 20px;
+      border-radius: 5px;
     }
 
     #features h2 {
@@ -79,6 +133,8 @@
     #screenshots {
       padding: 20px;
       background-color: #FFFFFF;
+      margin-bottom: 20px;
+      border-radius: 5px;
     }
 
     #screenshots h2 {
@@ -101,10 +157,12 @@
 
     /* Download Section */
     #download {
-      padding: 0; /* Removed Padding */
+      padding: 0;
       background-color: #7C2929;
       text-align: center;
       color: #FFFFFF;
+      margin-bottom: 20px;
+      border-radius: 5px;
     }
 
     #download h2 {
@@ -116,7 +174,7 @@
     .store-button {
       display: inline-block;
       padding: 12px 20px;
-      background-color: #E0B881; /* Button Background */
+      background-color: #E0B881;
       color: #000000;
       text-decoration: none;
       border-radius: 5px;
@@ -128,6 +186,8 @@
     #faqs {
       padding: 20px;
       background-color: #FFFFFF;
+      margin-bottom: 20px;
+      border-radius: 5px;
     }
 
     #faqs h2 {
@@ -153,8 +213,9 @@
 
     /* Footer Section */
     footer {
+      grid-area: footer;
       text-align: center;
-      padding: 20px; /* Reduced Padding */
+      padding: 20px;
       background-color: #7C2929;
       color: #FFFFFF;
     }
@@ -163,6 +224,25 @@
       color: #FFFFFF;
       text-decoration: none;
       margin: 0 10px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body {
+        grid-template-areas:
+          "header header header"
+          "main-content main-content main-content"
+          "footer footer footer";
+        grid-template-columns: 1fr;
+      }
+      
+      .ad-left, .ad-right {
+        display: none;
+      }
+      
+      .main-content {
+        margin: 10px;
+      }
     }
   </style>
 </head>
@@ -174,211 +254,181 @@
     <p>Solve Your Survey Computational Needs With Just A Few Clicks</p>
   </header>
 
-  <!-- Introduction Section -->
-  <section id="introduction">
-    <h2>About ITA-Computations</h2>
-    <p>ITA-Computations is a powerful geospatial app designed to simplify complex calculations. Whether you're computing bearings, distances, areas, or generating detailed sheets, ITA-Computations has you covered.</p>
-    <ul>
-      <li>Perform geospatial calculations offline.</li>
-      <li>Generate Bearing and Distance sheets, Area Computation sheets, Plan Data sheets, and Beacon Index sheets.</li>
-      <li>Supports light and dark modes for enhanced usability.</li>
-    </ul>
-  </section>
-
-  <!-- Features Section -->
-  <section id="features">
-    <h2>Features</h2>
-    <div class="feature">
-      <h3>Bearing and Distance Calculation</h3>
-      <p>Compute bearings and distances between coordinates with ease.</p>
+  <!-- Left Ad Space -->
+  <div class="ad-left">
+    <div class="ad-container">
+      <p>Advertisement Space</p>
     </div>
-    <div class="feature">
-      <h3>Area Calculation</h3>
-      <p>Calculate areas from coordinates and generate detailed computation sheets.</p>
+    <div class="ad-container">
+      <p>Your Other App 1</p>
     </div>
-  </section>
+  </div>
 
-  <!-- Screenshots Section -->
-  <section id="screenshots">
-    <h2>Screenshots</h2>
-    <div class="screenshot-grid">
-      <figure>
-        <img src="images/screenshot1.png" alt="ita computations geospatial app screenshot">
-        <figcaption>Easily compute bearings and distances.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- Download Section -->
-  <section id="download">
-    <h2>Download</h2>
-    <a href="[Microsoft Store Link]" class="store-button">Get it on Microsoft Store</a>
-    <a href="[Google Play Link]" class="store-button">Download on Google Play</a>
-    <a href="[App Store Link]" class="store-button">Available on the App Store</a>
-    <p>The app works entirely offline and is available for Android, iOS, and Windows.</p>
-  </section>
-
-  <!-- FAQ Section -->
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ Section</title>
-     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        button {
-            padding: 10px 15px;
-            font-size: 16px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin-bottom: 10px;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .faq-container {
-            display: none; /* Hidden initially */
-        }
-
-        details {
-            border: 1px solid #ccc;
-            margin-bottom: 5px;
-            padding: 10px;
-            background-color: #f9f9f9;
-        }
-
-        summary {
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        summary:hover {
-            color: #007BFF;
-        }
-    </style>
-</head>
-<body>
-
-    <button onclick="toggleFAQ()">Show FAQs</button>
-
-    <div class="faq-container">
-        <details>
-            <summary>What does this app do?</summary>
-            <p>This app helps you perform various geospatial calculations, including computing bearing, distance, and area from coordinates.</p>
-        </details>
-
-        <details>
-            <summary>How do I compute bearing and distance?</summary>
-            <p>Enter the coordinates for Point 1 and Point 2, then click "Save and Calculate" to get results.</p>
-        </details>
-
-        <details>
-            <summary>Can I compute area from coordinates?</summary>
-            <p>Yes, enter the boundary coordinates and click "Save and Calculate" to compute the area.</p>
-        </details>
-
-        <details>
-            <summary>How do I switch between light and dark mode?</summary>
-            <p>Open the menu and select "Toggle Dark Mode" to switch themes.</p>
-        </details>
-
-        <details>
-            <summary>How do I download the app?</summary>
-            <p>Select "Download Android Version", "Download iOS Version", or "Download Windows Version" from the menu.</p>
-        </details>
-
-        <details>
-            <summary>Can I import coordinates from a CSV file?</summary>
-            <p>Yes, click "Import CSV (N, E, L)" and ensure your file includes Northing (N), Easting (E), and Labels (L).</p>
-        </details>
-
-        <details>
-            <summary>How do I clear all entered coordinates?</summary>
-            <p>Click "Clear All Rows" to remove all input data.</p>
-        </details>
-
-        <details>
-            <summary>How do I save my calculations?</summary>
-            <p>Click "Save and Calculate" to generate computation sheets.</p>
-        </details>
-
-        <details>
-            <summary>Can I share the generated sheets?</summary>
-            <p>Yes, you can save them as PDFs or print directly from the app.</p>
-        </details>
-
-        <details>
-            <summary>How do I contact support?</summary>
-            <p>Reach out via:</p>
-            <ul>
-                <li>Facebook: [Your Facebook]</li>
-                <li>Twitter: [Your Twitter]</li>
-                <li>Instagram: [Your Instagram]</li>
-                <li>GitHub: [Your GitHub]</li>
-                <li>Email: [Your Support Email]</li>
-            </ul>
-        </details>
-
-        <details>
-            <summary>Can I use this app offline?</summary>
-            <p>Yes, the app works without an internet connection.</p>
-        </details>
-
-        <details>
-            <summary>What units does the app support?</summary>
-            <p>The app supports Meters, Feet, Acres, and Hectares.</p>
-        </details>
-
-        <details>
-            <summary>How do I update the app?</summary>
-            <p>Updates are available on Google Play, App Store, and the website.</p>
-        </details>
-
-        <details>
-            <summary>What if I find a bug?</summary>
-            <p>Report issues via GitHub or email us at [Your Support Email].</p>
-        </details>
-
-        <details>
-            <summary>Can I customize the generated sheets?</summary>
-            <p>Customization options may be added in future updates.</p>
-        </details>
-
-        <details>
-            <summary>How do I suggest new features?</summary>
-            <p>Share your ideas via social media or GitHub.</p>
-        </details>
-
+  <!-- Main Content Box -->
+  <main class="main-content">
+    <!-- Top Ad Space -->
+    <div class="ad-top">
+      <div class="ad-container">
+        <p>Advertisement Space</p>
+      </div>
     </div>
 
-    <script>
-        function toggleFAQ() {
-            let faqContainer = document.querySelector(".faq-container");
-            let button = document.querySelector("button");
+    <!-- Introduction Section -->
+    <section id="introduction">
+      <h2>About ITA-Computations</h2>
+      <p>ITA-Computations is a powerful geospatial app designed to simplify complex calculations. Whether you're computing bearings, distances, areas, or generating detailed sheets, ITA-Computations has you covered.</p>
+      <ul>
+        <li>Perform geospatial calculations offline.</li>
+        <li>Generate Bearing and Distance sheets, Area Computation sheets, Plan Data sheets, and Beacon Index sheets.</li>
+        <li>Supports light and dark modes for enhanced usability.</li>
+      </ul>
+    </section>
 
-            // Toggle FAQ section visibility
-            if (faqContainer.style.display === "none" || faqContainer.style.display === "") {
-                faqContainer.style.display = "block";
-                button.textContent = "Hide FAQs";
-            } else {
-                faqContainer.style.display = "none";
-                button.textContent = "Show FAQs";
-            }
-        }
-    </script>
+    <!-- Features Section -->
+    <section id="features">
+      <h2>Features</h2>
+      <div class="feature">
+        <h3>Bearing and Distance Calculation</h3>
+        <p>Compute bearings and distances between coordinates with ease.</p>
+      </div>
+      <div class="feature">
+        <h3>Area Calculation</h3>
+        <p>Calculate areas from coordinates and generate detailed computation sheets.</p>
+      </div>
+    </section>
 
-</body>
-</html>
+    <!-- Screenshots Section -->
+    <section id="screenshots">
+      <h2>Screenshots</h2>
+      <div class="screenshot-grid">
+        <figure>
+          <img src="images/screenshot1.png" alt="ita computations geospatial app screenshot">
+          <figcaption>Easily compute bearings and distances.</figcaption>
+        </figure>
+      </div>
+    </section>
 
+    <!-- Download Section -->
+    <section id="download">
+      <h2>Download</h2>
+      <a href="[Microsoft Store Link]" class="store-button">Get it on Microsoft Store</a>
+      <a href="[Google Play Link]" class="store-button">Download on Google Play</a>
+      <a href="[App Store Link]" class="store-button">Available on the App Store</a>
+      <p>The app works entirely offline and is available for Android, iOS, and Windows.</p>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faqs">
+      <h2>Frequently Asked Questions</h2>
+      <button onclick="toggleFAQ()">Show FAQs</button>
+
+      <div class="faq-container">
+        <details>
+          <summary>What does this app do?</summary>
+          <p>This app helps you perform various geospatial calculations, including computing bearing, distance, and area from coordinates.</p>
+        </details>
+
+        <details>
+          <summary>How do I compute bearing and distance?</summary>
+          <p>Enter the coordinates for Point 1 and Point 2, then click "Save and Calculate" to get results.</p>
+        </details>
+
+        <details>
+          <summary>Can I compute area from coordinates?</summary>
+          <p>Yes, enter the boundary coordinates and click "Save and Calculate" to compute the area.</p>
+        </details>
+
+        <details>
+          <summary>How do I switch between light and dark mode?</summary>
+          <p>Open the menu and select "Toggle Dark Mode" to switch themes.</p>
+        </details>
+
+        <details>
+          <summary>How do I download the app?</summary>
+          <p>Select "Download Android Version", "Download iOS Version", or "Download Windows Version" from the menu.</p>
+        </details>
+
+        <details>
+          <summary>Can I import coordinates from a CSV file?</summary>
+          <p>Yes, click "Import CSV (N, E, L)" and ensure your file includes Northing (N), Easting (E), and Labels (L).</p>
+        </details>
+
+        <details>
+          <summary>How do I clear all entered coordinates?</summary>
+          <p>Click "Clear All Rows" to remove all input data.</p>
+        </details>
+
+        <details>
+          <summary>How do I save my calculations?</summary>
+          <p>Click "Save and Calculate" to generate computation sheets.</p>
+        </details>
+
+        <details>
+          <summary>Can I share the generated sheets?</summary>
+          <p>Yes, you can save them as PDFs or print directly from the app.</p>
+        </details>
+
+        <details>
+          <summary>How do I contact support?</summary>
+          <p>Reach out via:</p>
+          <ul>
+            <li>Facebook: [Your Facebook]</li>
+            <li>Twitter: [Your Twitter]</li>
+            <li>Instagram: [Your Instagram]</li>
+            <li>GitHub: [Your GitHub]</li>
+            <li>Email: [Your Support Email]</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary>Can I use this app offline?</summary>
+          <p>Yes, the app works without an internet connection.</p>
+        </details>
+
+        <details>
+          <summary>What units does the app support?</summary>
+          <p>The app supports Meters, Feet, Acres, and Hectares.</p>
+        </details>
+
+        <details>
+          <summary>How do I update the app?</summary>
+          <p>Updates are available on Google Play, App Store, and the website.</p>
+        </details>
+
+        <details>
+          <summary>What if I find a bug?</summary>
+          <p>Report issues via GitHub or email us at [Your Support Email].</p>
+        </details>
+
+        <details>
+          <summary>Can I customize the generated sheets?</summary>
+          <p>Customization options may be added in future updates.</p>
+        </details>
+
+        <details>
+          <summary>How do I suggest new features?</summary>
+          <p>Share your ideas via social media or GitHub.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Bottom Ad Space -->
+    <div class="ad-bottom">
+      <div class="ad-container">
+        <p>Advertisement Space</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Right Ad Space -->
+  <div class="ad-right">
+    <div class="ad-container">
+      <p>Advertisement Space</p>
+    </div>
+    <div class="ad-container">
+      <p>Your Other App 2</p>
+    </div>
+  </div>
 
   <!-- Footer Section -->
   <footer>
@@ -390,6 +440,22 @@
       <!-- Add more social media icons here -->
     </div>
   </footer>
+
+  <script>
+    function toggleFAQ() {
+      let faqContainer = document.querySelector(".faq-container");
+      let button = document.querySelector("button");
+
+      // Toggle FAQ section visibility
+      if (faqContainer.style.display === "none" || faqContainer.style.display === "") {
+        faqContainer.style.display = "block";
+        button.textContent = "Hide FAQs";
+      } else {
+        faqContainer.style.display = "none";
+        button.textContent = "Show FAQs";
+      }
+    }
+  </script>
 
 </body>
 </html>
