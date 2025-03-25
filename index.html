@@ -20,7 +20,7 @@
         "header header header"
         "left-ad main-content right-ad"
         "footer footer footer";
-      grid-template-columns: 200px 1fr 200px;
+      grid-template-columns: minmax(120px, 200px) 1fr minmax(120px, 200px);
       grid-template-rows: auto 1fr auto;
       min-height: 100vh;
     }
@@ -50,22 +50,25 @@
       grid-area: main-content;
       background-color: #FFE0B881;
       padding: 20px;
-      margin: 20px 0;
+      margin: 10px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      min-width: 0; /* Prevent overflow */
     }
 
     /* Ad Sections */
     .ad-left {
       grid-area: left-ad;
-      padding: 20px;
+      padding: 10px;
       background-color: #f9f9f9;
+      min-width: 120px;
     }
 
     .ad-right {
       grid-area: right-ad;
-      padding: 20px;
+      padding: 10px;
       background-color: #f9f9f9;
+      min-width: 120px;
     }
 
     .ad-top, .ad-bottom {
@@ -77,13 +80,14 @@
     }
 
     .ad-container {
-      min-height: 250px;
+      min-height: 150px;
       display: flex;
       align-items: center;
       justify-content: center;
       background-color: #e9e9e9;
       border: 1px dashed #ccc;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+      padding: 5px;
     }
 
     /* Introduction Section */
@@ -96,14 +100,14 @@
     }
 
     #introduction h2 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 15px;
       font-weight: bold;
       color: #7C2929;
     }
 
     #introduction p, #introduction ul {
-      font-size: 1.1rem;
+      font-size: 1rem;
       line-height: 1.6;
     }
 
@@ -116,14 +120,14 @@
     }
 
     #features h2 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 15px;
       font-weight: bold;
       color: #7C2929;
     }
 
     .feature h3 {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       margin-bottom: 10px;
       font-weight: bold;
       color: #7C2929;
@@ -138,7 +142,7 @@
     }
 
     #screenshots h2 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 15px;
       font-weight: bold;
       color: #7C2929;
@@ -146,8 +150,8 @@
 
     .screenshot-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
     }
 
     figure img {
@@ -166,20 +170,21 @@
     }
 
     #download h2 {
-      font-size: 2rem;
-      margin: 20px 0;
+      font-size: 1.8rem;
+      margin: 15px 0;
       font-weight: bold;
     }
 
     .store-button {
       display: inline-block;
-      padding: 12px 20px;
+      padding: 10px 15px;
       background-color: #E0B881;
       color: #000000;
       text-decoration: none;
       border-radius: 5px;
-      margin: 10px;
+      margin: 8px;
       font-weight: bold;
+      font-size: 0.9rem;
     }
 
     /* FAQ Section */
@@ -191,7 +196,7 @@
     }
 
     #faqs h2 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 15px;
       font-weight: bold;
       color: #7C2929;
@@ -205,7 +210,7 @@
     }
 
     summary {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: bold;
       cursor: pointer;
       color: #7C2929;
@@ -215,7 +220,7 @@
     footer {
       grid-area: footer;
       text-align: center;
-      padding: 20px;
+      padding: 15px;
       background-color: #7C2929;
       color: #FFFFFF;
     }
@@ -223,25 +228,68 @@
     footer a {
       color: #FFFFFF;
       text-decoration: none;
-      margin: 0 10px;
+      margin: 0 8px;
+      font-size: 0.9rem;
     }
 
     /* Responsive Design */
     @media (max-width: 768px) {
       body {
-        grid-template-areas:
-          "header header header"
-          "main-content main-content main-content"
-          "footer footer footer";
-        grid-template-columns: 1fr;
-      }
-      
-      .ad-left, .ad-right {
-        display: none;
+        grid-template-columns: minmax(100px, 150px) 1fr minmax(100px, 150px);
       }
       
       .main-content {
-        margin: 10px;
+        padding: 15px;
+        margin: 5px;
+      }
+      
+      .ad-left, .ad-right {
+        padding: 5px;
+      }
+      
+      .ad-container {
+        min-height: 120px;
+        font-size: 0.8rem;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      header p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        grid-template-columns: minmax(80px, 120px) 1fr minmax(80px, 120px);
+      }
+      
+      .main-content {
+        padding: 10px;
+      }
+      
+      .ad-container {
+        min-height: 100px;
+        font-size: 0.7rem;
+      }
+      
+      #introduction h2,
+      #features h2,
+      #screenshots h2,
+      #download h2,
+      #faqs h2 {
+        font-size: 1.5rem;
+      }
+      
+      .feature h3 {
+        font-size: 1.1rem;
+      }
+      
+      .store-button {
+        padding: 8px 12px;
+        font-size: 0.8rem;
       }
     }
   </style>
@@ -257,7 +305,7 @@
   <!-- Left Ad Space -->
   <div class="ad-left">
     <div class="ad-container">
-      <p>Advertisement Space</p>
+      <p>Advertisement</p>
     </div>
     <div class="ad-container">
       <p>Your Other App 1</p>
@@ -269,7 +317,7 @@
     <!-- Top Ad Space -->
     <div class="ad-top">
       <div class="ad-container">
-        <p>Advertisement Space</p>
+        <p>Advertisement</p>
       </div>
     </div>
 
@@ -337,85 +385,13 @@
           <summary>Can I compute area from coordinates?</summary>
           <p>Yes, enter the boundary coordinates and click "Save and Calculate" to compute the area.</p>
         </details>
-
-        <details>
-          <summary>How do I switch between light and dark mode?</summary>
-          <p>Open the menu and select "Toggle Dark Mode" to switch themes.</p>
-        </details>
-
-        <details>
-          <summary>How do I download the app?</summary>
-          <p>Select "Download Android Version", "Download iOS Version", or "Download Windows Version" from the menu.</p>
-        </details>
-
-        <details>
-          <summary>Can I import coordinates from a CSV file?</summary>
-          <p>Yes, click "Import CSV (N, E, L)" and ensure your file includes Northing (N), Easting (E), and Labels (L).</p>
-        </details>
-
-        <details>
-          <summary>How do I clear all entered coordinates?</summary>
-          <p>Click "Clear All Rows" to remove all input data.</p>
-        </details>
-
-        <details>
-          <summary>How do I save my calculations?</summary>
-          <p>Click "Save and Calculate" to generate computation sheets.</p>
-        </details>
-
-        <details>
-          <summary>Can I share the generated sheets?</summary>
-          <p>Yes, you can save them as PDFs or print directly from the app.</p>
-        </details>
-
-        <details>
-          <summary>How do I contact support?</summary>
-          <p>Reach out via:</p>
-          <ul>
-            <li>Facebook: [Your Facebook]</li>
-            <li>Twitter: [Your Twitter]</li>
-            <li>Instagram: [Your Instagram]</li>
-            <li>GitHub: [Your GitHub]</li>
-            <li>Email: [Your Support Email]</li>
-          </ul>
-        </details>
-
-        <details>
-          <summary>Can I use this app offline?</summary>
-          <p>Yes, the app works without an internet connection.</p>
-        </details>
-
-        <details>
-          <summary>What units does the app support?</summary>
-          <p>The app supports Meters, Feet, Acres, and Hectares.</p>
-        </details>
-
-        <details>
-          <summary>How do I update the app?</summary>
-          <p>Updates are available on Google Play, App Store, and the website.</p>
-        </details>
-
-        <details>
-          <summary>What if I find a bug?</summary>
-          <p>Report issues via GitHub or email us at [Your Support Email].</p>
-        </details>
-
-        <details>
-          <summary>Can I customize the generated sheets?</summary>
-          <p>Customization options may be added in future updates.</p>
-        </details>
-
-        <details>
-          <summary>How do I suggest new features?</summary>
-          <p>Share your ideas via social media or GitHub.</p>
-        </details>
       </div>
     </section>
 
     <!-- Bottom Ad Space -->
     <div class="ad-bottom">
       <div class="ad-container">
-        <p>Advertisement Space</p>
+        <p>Advertisement</p>
       </div>
     </div>
   </main>
@@ -423,7 +399,7 @@
   <!-- Right Ad Space -->
   <div class="ad-right">
     <div class="ad-container">
-      <p>Advertisement Space</p>
+      <p>Advertisement</p>
     </div>
     <div class="ad-container">
       <p>Your Other App 2</p>
@@ -437,7 +413,6 @@
     <div class="social-media">
       <a href="[Facebook Link]"><img src="icons/facebook.png" alt="Facebook"></a>
       <a href="[Twitter Link]"><img src="icons/twitter.png" alt="Twitter"></a>
-      <!-- Add more social media icons here -->
     </div>
   </footer>
 
